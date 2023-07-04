@@ -1,13 +1,13 @@
 import {useEffect, useState} from "react";
 
-const endpoint = `${process.env.REACT_APP_API_BASE}/album`;
+const endpoint =`${process.env.REACT_APP_API_URL}Album`;
 
-const useAlbums = () => {
+export function useAlbums(){
     const [albums, setAlbums] = useState([]);
 
     useEffect(() => {
         const request = fetch(endpoint);
-
+        console.log(endpoint)
         request
             .then((apiResponse) => {
                 if (!apiResponse.ok) {
@@ -24,4 +24,3 @@ const useAlbums = () => {
 
     return albums;
 };
-export default useAlbums;

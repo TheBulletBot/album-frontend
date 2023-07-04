@@ -1,22 +1,22 @@
 import "@material-ui/core";
 import { CardMedia,Card, CardHeader, CardContent, Typography} from "@material-ui/core";
 
-const AlbCrd = ({ id, name, artist, imageUrl }) => {
-    const Name="Banjo Kazooie Re-Jiggy'd"
+const AlbCrd = ({ id, name, artist, imageURL }) => {
+    console.log(id,name,artist,imageURL)
     return (
         <Card height="140">
-            <CardHeader></CardHeader>
+            <CardHeader>{id}</CardHeader>
             <CardMedia
                 component="img"
                 style={{height:140, objectFit: "contain"}}
-                image="https://wiki.teamfortress.com/w/images/5/59/Lvl1dispenser.png"
+                image= {imageURL}
                 title="dispenser"/>
             <CardContent>
-                <Typography variant="Title" color="text.primary">
-                {Name}
+                <Typography variant="h4">
+                {name}
                 </Typography>
                 <Typography>
-                Grant Kirkhope
+                {artist}
                 </Typography>
             </CardContent>
         </Card>
