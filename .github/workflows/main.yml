@@ -30,4 +30,7 @@ jobs:
         node-version: '17.x'
     - run: npm ci
     - run: npm run build --if-present
+    - name: Copy files to the s3 website content bucket
+      run: 
+        aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}
     
