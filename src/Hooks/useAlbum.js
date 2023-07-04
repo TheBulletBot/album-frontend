@@ -2,8 +2,8 @@ import {useEffect, useState} from "react";
 
 
 export function useAlbum(id){
-    const endpoint =`${process.env.REACT_APP_API_URL}Album/`+id;
-    const [albums, setAlbums] = useState();
+    const endpoint =`${process.env.REACT_APP_API_URL}Album/${id}`;
+    const [albums, setAlbums] = useState([]);
 
     useEffect(() => {
         const request = fetch(endpoint);

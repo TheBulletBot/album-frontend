@@ -7,7 +7,7 @@ function AlbOvv(){
     return(
         <div>
             {albums.map((album) => (
-                <Grid item  xs={3} key={album.id}>
+                <Grid item container direction="column" xs={12} key={album.id}>
                     <AlbCrd id={album.id} name={album.name} artist={album.artist} imageURL={album.imageURL}/>
                 </Grid>
             ))}

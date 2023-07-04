@@ -22,7 +22,6 @@ function App() {
         <Route path="/Details/:id" element={<AlbDet/>}/>
       </Routes>
       </Container>
-      <Link href="album"> Go to albums?</Link>
       </BrowserRouter>
     </div>
   );
