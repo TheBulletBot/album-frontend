@@ -32,6 +32,7 @@ function AlbForm({album,onSubmit}){
                     <TextField  helperText="Title" value={album.name}/>
 
                     <TextField helperText="Artist" value={album.artist}/>
+                    <TextField helperText="URL: " value={album.imageURL}/>
                 </CardContent>
             </Card>
             </div>
