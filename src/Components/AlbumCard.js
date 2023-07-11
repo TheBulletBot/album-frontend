@@ -3,7 +3,7 @@ import { CardMedia,Card, CardHeader, CardContent, Typography,CardActionArea} fro
 const AlbCrd = ({ album }) => {
     return (
         <Card height="140">
-            <CardActionArea href={"/details/"+album.id}>
+            <CardActionArea to={"/details/"+album.id}>
             <CardHeader>{album.id}</CardHeader>
             <CardMedia
                 component="img"

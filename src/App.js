@@ -1,7 +1,8 @@
 import {AlbOvv,AlbCrd} from './Components';
+import Nav from './Components/Navigation';
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { AppBar, Container, Toolbar,Link} from '@material-ui/core';
+import { BrowserRouter, Route, Routes ,Link} from 'react-router-dom';
+import { AppBar, Container, Toolbar} from '@material-ui/core';
 import AlbDet from './Components/Albumdetail';
 import CreateAlbum from './Components/CreateAlbum';
 
@@ -16,15 +17,17 @@ function App() {
         <p>  </p>
         <Link to="/new">Add New</Link>
       </Toolbar>
-      <AppBar/>
-      <Container>
+      
       <Routes>
-        <Route path="/" element={<AlbOvv/>}/>
+        <Route path="/" element={<Nav/>}/>
         <Route path="/album" element={<AlbOvv/>}/>
         <Route path="/alb_1" element={<AlbCrd/>}></Route>
         <Route path="/Details/:id" element={<AlbDet/>}/>
         <Route path="/new" element={<CreateAlbum/>}></Route>
       </Routes>
+      <AppBar/>
+      <Container>
+      
       </Container>
       </BrowserRouter>
     </div>
