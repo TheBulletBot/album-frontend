@@ -23,7 +23,7 @@ function AlbForm({album,onSubmit}){
     return(
         <div>
         
-            <form autoComplete="off" onSubmit={handleSubmit({"id":7,"name":"Me","artist":"you","imageURL":"thm"})}>
+            <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
             <FormControl>
             <Typography>Add an Album</Typography>
             <Controller
@@ -42,14 +42,14 @@ function AlbForm({album,onSubmit}){
                 margin="normal"
             />  
             <Controller
-                name="Artist"
+                name="artist"
                 control={control}
                 rules={{ required: true }}
                 render={({ field }) => (
                     <TextField
                         label="Artist"
                         variant="outlined"
-                        {...field.artist}
+                        {...field}
                         margin="normal"
                         fullWidth
                     />
@@ -57,14 +57,14 @@ function AlbForm({album,onSubmit}){
                 margin="normal"
             />  
             <Controller
-                name="ImageURL"
+                name="imageUrl"
                 control={control}
                 rules={{ required: true }}
                 render={({ field }) => (
                     <TextField
                         label="Link to Image"
                         variant="outlined"
-                        {...field.imageUrl}
+                        {...field}
                         margin="normal"
                         fullWidth
                     />
