@@ -24,7 +24,7 @@ function CreateAlbum(){
     };
     return(
         <div>
-            {handleSubmit({"id":7,"name":"Me","artist":"you","imageURL":"thm"})}
+            <AlbForm onSubmit={handleSubmit}></AlbForm>
         </div>
     )
 }
