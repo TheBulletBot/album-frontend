@@ -1,6 +1,7 @@
 import AlbForm from "./AlbumForm";
 import { useNavigate } from "react-router-dom";
 
+
 function CreateAlbum(){
     const endpoint =`${process.env.REACT_APP_API_URL}Album`;
     const navigate=useNavigate()
@@ -17,13 +18,13 @@ function CreateAlbum(){
             if(!response.ok) {
                 console.error(response.statusText);
             } else {
-                navigate("/Overview");
+                navigate("/album");
             }
         })
     };
     return(
         <div>
-            <AlbForm album={false} onSubmit={handleSubmit}></AlbForm>
+            {handleSubmit({"id":7,"name":"Me","artist":"you","imageURL":"thm"})}
         </div>
     )
 }

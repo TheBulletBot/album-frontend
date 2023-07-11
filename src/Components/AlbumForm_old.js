@@ -1,12 +1,13 @@
 import {Card, CardContent,TextField,CardMedia,Typography, FormControl, CardActionArea} from "@material-ui/core"
+import { common } from "@material-ui/core/colors";
 import { useForm,Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 //TODO: MAKE DISPLAY FORM FOR ALBUMDETAIL
 //TODO: MAKE INPUT FORM FOR ADD
 //MAYBE? MAKE INPUT FORM FOR delete
-function AlbForm({album,onSubmit}){
-    const { control, handleSubmit } = useForm({
+function AlbForm(album,onSubmit){
+    const { handleSubmit, control } = useForm({
         defaultValues: album
             ? album
             : {
@@ -15,11 +16,26 @@ function AlbForm({album,onSubmit}){
                 imageUrl: "",
             },
     });
+    
+    if (album.album){
+        return(
+            <div>
+            <Card>
+                <CardContent>
+                <CardMedia
+                component="img"
+                style={{height:140, objectFit: "contain"}}
+                image= {album.album.imageURL}
+                title="dispenser"></CardMedia>
+                    <TextField  helperText="Title" value={album.album.name}/>
 
-    const endpoint =`${process.env.REACT_APP_API_URL}Album`;
-    const navigate=useNavigate()
-    
-    
+                    <TextField helperText="Artist" value={album.album.artist}/>
+                </CardContent>
+            </Card>
+            </div>
+        )
+    }
+    else {
     return(
         <div>
         
@@ -49,7 +65,7 @@ function AlbForm({album,onSubmit}){
                     <TextField
                         label="Artist"
                         variant="outlined"
-                        {...field.artist}
+                        {...field}
                         margin="normal"
                         fullWidth
                     />
@@ -64,7 +80,7 @@ function AlbForm({album,onSubmit}){
                     <TextField
                         label="Link to Image"
                         variant="outlined"
-                        {...field.imageUrl}
+                        {...field}
                         margin="normal"
                         fullWidth
                     />
@@ -79,5 +95,7 @@ function AlbForm({album,onSubmit}){
         </div>
         
     )
+    }
+    
 }
 export default AlbForm;
