@@ -10,16 +10,16 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Toolbar>
-        <a href='/album'>Overview</a>
+        <Link to="/album">Overview</Link>
         <p>  </p>
-        <a href="/Details/1"> Details</a>
+        <Link to="/Details/1"> Details</Link>
         <p>  </p>
-        <a href="/new">Add New</a>
+        <Link to="/new">Add New</Link>
       </Toolbar>
       <AppBar/>
       <Container>
       <Routes>
-        <Route path="/" element={<p>Them</p>}/>
+        <Route path="/" element={<AlbOvv/>}/>
         <Route path="/album" element={<AlbOvv/>}/>
         <Route path="/alb_1" element={<AlbCrd/>}></Route>
         <Route path="/Details/:id" element={<AlbDet/>}/>

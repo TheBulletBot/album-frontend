@@ -9,7 +9,7 @@ function AlbDet(){
         <div>
 
             <AlbForm album={album}></AlbForm>
-            <Link href="/album"> Back?</Link>
+            <Link to="/album"> Back?</Link>
         </div>
     )
 }
