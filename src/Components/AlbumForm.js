@@ -1,11 +1,19 @@
-import {Card, CardContent,TextField,CardMedia,Typography, FormControl} from "@material-ui/core"
+import {Card, CardContent,TextField,CardMedia,Typography, FormControl, CardActionArea} from "@material-ui/core"
+import { useForm,Controller } from "react-hook-form";
+
 //TODO: MAKE DISPLAY FORM FOR ALBUMDETAIL
 //TODO: MAKE INPUT FORM FOR ADD
 //MAYBE? MAKE INPUT FORM FOR delete
-function AlbForm(album){
-    function handleSubmit(){
-        
-    }
+function AlbForm(album,{onSubmit}){
+    const { handleSubmit, control } = useForm({
+        defaultValues: album
+            ? album
+            : {
+                name: "",
+                artist: "",
+                imageUrl: "",
+            },
+    });
     
     if (album.album){
         return(
@@ -29,21 +37,62 @@ function AlbForm(album){
     return(
         <div>
         
-        <form autoComplete="off" onSubmit={handleSubmit}>
+            <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
             <FormControl>
             <Typography>Add an Album</Typography>
-            <CardContent>
-                <CardMedia></CardMedia>
-                <TextField  helperText="Title" ></TextField>
-                <TextField helperText="Artist"></TextField>
-                <TextField helperText="Image URL"></TextField>
-            </CardContent>
-            </FormControl>
+            <Controller
+                name="name"
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                    <TextField
+                        label="Name"
+                        variant="outlined"
+                        {...field}
+                        margin="normal"
+                        fullWidth
+                    />
+                )}
+                margin="normal"
+            />  
+            <Controller
+                name="Artist"
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                    <TextField
+                        label="Artist"
+                        variant="outlined"
+                        {...field}
+                        margin="normal"
+                        fullWidth
+                    />
+                )}
+                margin="normal"
+            />  
+            <Controller
+                name="ImageURL"
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                    <TextField
+                        label="Link to Image"
+                        variant="outlined"
+                        {...field}
+                        margin="normal"
+                        fullWidth
+                    />
+                )}
+                margin="normal"
+            />  
+            
             <button type="submit">Submit</button>
-        </form>
+            </FormControl>
+            
+            </form>
         </div>
+        
     )
     }
-    
 }
 export default AlbForm;

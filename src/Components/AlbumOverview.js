@@ -1,6 +1,7 @@
 import { Grid } from "@material-ui/core";
 import {useAlbums} from "../Hooks/useAlbums"
 import {AlbCrd} from "./"
+import { Link } from "react-router-dom";
 
 function AlbOvv(){
     const albums=useAlbums()
@@ -11,7 +12,7 @@ function AlbOvv(){
                     <AlbCrd album={album}/>
                 </Grid>
             ))}
-
+            <Link to="/new">Add Album</Link>
         </div>
     )
 }
