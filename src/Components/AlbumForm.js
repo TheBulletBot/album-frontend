@@ -19,7 +19,25 @@ function AlbForm({album,onSubmit}){
     const endpoint =`${process.env.REACT_APP_API_URL}Album`;
     const navigate=useNavigate()
     
-    
+    if (album){
+        return(
+            <div>
+            <Card>
+                <CardContent>
+                <CardMedia
+                component="img"
+                style={{height:140, objectFit: "contain"}}
+                image= {album.imageURL}
+                title="dispenser"></CardMedia>
+                    <TextField  helperText="Title" value={album.name}/>
+
+                    <TextField helperText="Artist" value={album.artist}/>
+                </CardContent>
+            </Card>
+            </div>
+        )
+    }
+    else {
     return(
         <div>
         
@@ -79,5 +97,6 @@ function AlbForm({album,onSubmit}){
         </div>
         
     )
+}
 }
 export default AlbForm;
