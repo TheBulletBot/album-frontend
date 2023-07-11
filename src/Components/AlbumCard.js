@@ -1,22 +1,21 @@
 import { CardMedia,Card, CardHeader, CardContent, Typography,CardActionArea} from "@material-ui/core";
 
-const AlbCrd = ({ id, name, artist, imageURL }) => {
-    console.log(id,name,artist,imageURL)
+const AlbCrd = ({ album }) => {
     return (
         <Card height="140">
-            <CardActionArea href={"/details/"+id}>
-            <CardHeader>{id}</CardHeader>
+            <CardActionArea href={"/details/"+album.id}>
+            <CardHeader>{album.id}</CardHeader>
             <CardMedia
                 component="img"
                 style={{height:140, objectFit: "contain"}}
-                image= {imageURL}
+                image= {album.imageURL}
                 title="dispenser"></CardMedia>
             <CardContent>
                 <Typography variant="h4">
-                {name}
+                {album.name}
                 </Typography>
                 <Typography>
-                {artist}
+                {album.artist}
                 </Typography>
             </CardContent>
             </CardActionArea>

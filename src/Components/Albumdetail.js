@@ -8,8 +8,8 @@ function AlbDet(){
     const album = useAlbum(params.id);
     return(
         <div>
-            <AlbCrd id={album.id} name={album.name} artist={album.artist} imageURL={album.imageURL}/>
-            <AlbForm></AlbForm>
+
+            <AlbForm album={album}></AlbForm>
             <Link href="/album"> Back?</Link>
         </div>
     )
